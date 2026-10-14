@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b3b68">
+  <title>SafeMeds AI — Hear Medicine Details. Know When to Verify.</title>
+  <meta name="description" content="An accessible bilingual medicine-label reading prototype.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement"><span class="pulse"></span> Accessible medicine-label reading · Prototype preview</div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="SafeMeds AI home">
+      <span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34S5 25 5 14.5A8.5 8.5 0 0 1 20 9a8.5 8.5 0 0 1 15 5.5C35 25 20 34 20 34Z" fill="none" stroke="currentColor" stroke-width="3.2"/><path d="M13 20h14M20 13v14" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span>
+      <span>SafeMeds <b>AI</b><small>MEDICINE LABEL ASSISTANT</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a class="nav-link active" href="#home" data-i18n="navHome">Home</a>
+      <a class="nav-link" href="#scanner" data-i18n="navScan">Scan label</a>
+      <a class="nav-link" href="#assistant" data-i18n="navAsk">Ask assistant</a>
+      <a class="nav-link" href="#about" data-i18n="navAbout">About</a>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-btn" id="contrastBtn" title="Toggle high contrast" aria-label="Toggle high contrast">◐</button>
+      <label class="language-picker"><span aria-hidden="true">◎</span><select id="languageSelect" aria-label="Choose language"><option value="en">English</option><option value="hi">हिन्दी</option></select></label>
+      <button class="mobile-menu" id="menuBtn" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-icon">✦</span><span data-i18n="eyebrow">A more accessible way to read medicine labels</span></div>
+        <h1><span data-i18n="heroLine1">Medicine details,</span><br><span class="gradient-text" data-i18n="heroLine2">made easier to hear.</span></h1>
+        <p class="hero-lede" data-i18n="heroDesc">Scan a label, review the printed details, and listen in your preferred language. When a reading is unclear, SafeMeds AI tells you to verify it.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-large" href="#scanner"><span data-i18n="startScan">Start scanning</span><span class="arrow">↗</span></a>
+          <a class="btn btn-quiet btn-large" href="#about" data-i18n="howWorks">How it works</a>
+        </div>
+        <div class="trust-row">
+          <span><span class="mini-check">✓</span><span data-i18n="bilingual">English + Hindi</span></span>
+          <span><span class="mini-check">✓</span><span data-i18n="voiceReady">Voice-friendly</span></span>
+          <span><span class="mini-check">✓</span><span data-i18n="verifyFirst">Verification-first</span></span>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Illustration of a medicine label being scanned">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="floating-chip chip-top"><span class="chip-icon">◉</span><span><b data-i18n="labelDetected">Label ready to scan</b><small data-i18n="demoOnly">Interactive demo interface</small></span></div>
+        <div class="phone">
+          <div class="phone-speaker"></div><div class="phone-camera"></div>
+          <div class="phone-screen">
+            <div class="screen-top"><span>SafeMeds AI</span><span class="screen-dot"></span></div>
+            <div class="scan-frame">
+              <div class="corner tl"></div><div class="corner tr"></div><div class="corner bl"></div><div class="corner br"></div>
+              <div class="sample-pack"><div class="pack-brand">MEDICINE LABEL</div><div class="pack-name">Example tablets</div><div class="pack-rule"></div><div class="pack-strength">500 mg</div><div class="pack-line">Batch: SAMPLE-01</div><div class="pack-line">Expiry: MM/YYYY</div></div>
+              <div class="scan-line"></div>
+            </div>
+            <div class="phone-bottom"><span>◎</span><span>Place label inside frame</span></div>
+          </div>
+        </div>
+        <div class="floating-chip chip-bottom"><span class="sound-icon">♫</span><span><b data-i18n="listenYourWay">Listen your way</b><small data-i18n="englishHindi">English · हिन्दी</small></span></div>
+        <div class="decor-dot dot-a"></div><div class="decor-dot dot-b"></div><div class="decor-dot dot-c"></div>
+      </div>
+      <div class="hero-footnote"><span class="shield">◇</span><span data-i18n="heroNote">Designed to support label reading—not to replace professional medical advice.</span></div>
+    </section>
+
+    <section class="quick-stats section-wrap" aria-label="Key features">
+      <div class="stat"><span class="stat-icon blue">▧</span><div><b data-i18n="featureScan">Scan</b><small data-i18n="featureScanDesc">Upload a label image</small></div></div>
+      <div class="stat"><span class="stat-icon mint">⌁</span><div><b data-i18n="featureExtract">Extract</b><small data-i18n="featureExtractDesc">Organize printed details</small></div></div>
+      <div class="stat"><span class="stat-icon lilac">♫</span><div><b data-i18n="featureListen">Listen</b><small data-i18n="featureListenDesc">Read details aloud</small></div></div>
+      <div class="stat"><span class="stat-icon amber">✓</span><div><b data-i18n="featureVerify">Verify</b><small data-i18n="featureVerifyDesc">Flag what needs checking</small></div></div>
+    </section>
+
+    <section class="workspace section-wrap" id="scanner">
+      <div class="section-heading">
+        <div><div class="section-kicker" data-i18n="workspaceKicker">YOUR WORKSPACE</div><h2 data-i18n="scanTitle">Scan a medicine label</h2><p data-i18n="scanSubtitle">Upload a clear photo to preview the reading experience.</p></div>
+        <span class="status-pill"><span class="status-dot"></span><span data-i18n="prototypeMode">Prototype mode</span></span>
+      </div>
+      <div class="workspace-grid">
+        <div class="panel upload-panel">
+          <div class="panel-heading"><span class="step-number">01</span><div><h3 data-i18n="uploadHeading">Add your label image</h3><p data-i18n="uploadHint">Use a clear, well-lit photo of the printed package.</p></div></div>
+          <input type="file" id="fileInput" accept="image/*" hidden>
+          <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Choose a medicine label image">
+            <div class="upload-illustration"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="11" y="13" width="42" height="38" rx="8" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="32" cy="30" r="8" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="m14 45 12-10 8 7 6-5 10 9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="upload-arrow">↑</span></div>
+            <h4 data-i18n="dropTitle">Drop your image here</h4><p data-i18n="dropSub">or browse files on your device</p><span class="btn btn-outline" data-i18n="chooseImage">Choose an image</span><small>PNG · JPG · WEBP</small>
+          </div>
+          <div class="image-preview hidden" id="imagePreview"><img id="previewImg" alt="Selected medicine label preview"><div class="preview-meta"><span id="fileName">label-image.jpg</span><button class="text-button" id="removeImage" data-i18n="removeImage">Remove image</button></div></div>
+          <div class="upload-tip"><span class="tip-icon">✧</span><div><b data-i18n="tipTitle">For a better reading</b><p data-i18n="tipText">Keep the label flat, avoid glare, and include the full printed text in the frame.</p></div></div>
+          <button class="btn btn-primary full-width" id="scanBtn"><span>✦</span><span data-i18n="scanButton">Preview sample result</span><span class="arrow">→</span></button>
+          <p class="microcopy" data-i18n="scanDisclaimer">Demo only: image upload is not yet connected to OCR.</p>
+        </div>
+
+        <div class="panel result-panel" id="results">
+          <div class="panel-heading"><span class="step-number">02</span><div><h3 data-i18n="resultHeading">Medicine information</h3><p data-i18n="resultHint">Extracted details will appear here.</p></div><span class="result-badge"><span class="result-dot"></span><span data-i18n="demoResult">Sample result</span></span></div>
+          <div class="empty-result" id="emptyResult"><div class="empty-art"><div class="empty-card"><span>Rx</span><i></i><i></i><i></i></div><div class="empty-spark">✦</div></div><h4 data-i18n="emptyTitle">Your label details will appear here</h4><p data-i18n="emptyText">Choose an image, then preview the sample result to explore the interface.</p><div class="empty-tags"><span>Medicine name</span><span>Strength</span><span>Expiry date</span></div></div>
+          <div class="result-content hidden" id="resultContent">
+            <div class="result-topline"><div class="med-avatar">Rx</div><div class="med-title"><span class="field-label" data-i18n="medicineName">Medicine name</span><h4 id="medName">Example medicine</h4><p id="medType">Illustrative sample data</p></div><span class="confidence-tag"><span>●</span> <span data-i18n="notVerified">Not verified</span></span></div>
+            <div class="detail-grid">
+              <div class="detail-card"><span class="detail-icon">◈</span><span class="field-label" data-i18n="strength">Strength</span><b id="medStrength">500 mg (example)</b></div>
+              <div class="detail-card"><span class="detail-icon">▦</span><span class="field-label" data-i18n="batchNumber">Batch number</span><b id="medBatch">Not provided</b></div>
+              <div class="detail-card"><span class="detail-icon">▣</span><span class="field-label" data-i18n="manufactureDate">Manufacturing date</span><b id="medMfg">Not provided</b></div>
+              <div class="detail-card expiry-card"><span class="detail-icon">◷</span><span class="field-label" data-i18n="expiryDate">Expiry date</span><b id="medExpiry">Not provided</b></div>
+            </div>
+            <div class="instructions-box"><span class="instruction-icon">☰</span><div><b data-i18n="printedInstructions">Printed instructions</b><p id="medInstructions" data-i18n="instructionUnavailable">No instructions extracted. Check the actual package or ask a pharmacist.</p></div></div>
+            <div class="warning-box"><span class="warning-icon">!</span><div><b data-i18n="verifyTitle">Please verify the package</b><p data-i18n="verifyText">This is sample information, not a real scan. Never rely on this demo for dosing or treatment decisions.</p></div></div>
+            <div class="result-actions"><button class="btn btn-primary" id="readBtn"><span>♫</span><span data-i18n="readAloud">Read aloud</span></button><button class="btn btn-outline" id="askBtn"><span>✧</span><span data-i18n="askQuestion">Ask a question</span></button><button class="btn btn-quiet" id="scanAgainBtn"><span>↻</span><span data-i18n="scanAgain">Scan again</span></button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="assistant-section" id="assistant">
+      <div class="section-wrap assistant-wrap">
+        <div class="assistant-intro"><div class="section-kicker" data-i18n="assistantKicker">YOUR ACCESSIBLE COMPANION</div><h2 data-i18n="assistantTitle">Ask in your own way.</h2><p data-i18n="assistantDesc">Type a question or try voice input. The demo answers common questions about the sample fields shown above.</p>
+          <div class="assistant-perks"><div><span>✓</span><span data-i18n="perk1">English and Hindi interface</span></div><div><span>✓</span><span data-i18n="perk2">Chat and voice-input controls</span></div><div><span>✓</span><span data-i18n="perk3">Safety-first responses</span></div></div>
+        </div>
+        <div class="chat-card">
+          <div class="chat-header"><div class="assistant-avatar">✦</div><div><b>SafeMeds <span>AI</span></b><small><span class="online-dot"></span><span data-i18n="demoAssistant">Demo assistant · Sample data only</span></small></div><button class="icon-btn chat-clear" id="clearChat" title="Clear chat" aria-label="Clear chat">↻</button></div>
+          <div class="chat-mode"><button class="mode-btn active" id="chatMode"><span>▤</span><span data-i18n="chatMode">Chat</span></button><button class="mode-btn" id="voiceMode"><span>♩</span><span data-i18n="voiceMode">Voice input</span></button><span class="mode-spacer"></span><span class="language-note" id="chatLangNote">English</span></div>
+          <div class="chat-messages" id="chatMessages" aria-live="polite">
+            <div class="message bot-message"><div class="message-avatar">✦</div><div class="bubble"><p data-i18n="welcomeChat">Hi! I can help you explore the sample label details. What would you like to know?</p><small>SafeMeds AI · Demo</small></div></div>
+          </div>
+          <div class="suggestion-row"><button class="suggestion" data-question="expiry">What is the expiry date?</button><button class="suggestion" data-question="strength">What is the strength?</button><button class="suggestion" data-question="hindi">Explain in Hindi</button></div>
+          <div class="voice-box hidden" id="voiceBox"><div class="voice-orb"><span>♩</span></div><div><b data-i18n="voicePrompt">Tap the microphone and speak</b><p data-i18n="voiceHelp">Speech recognition depends on your browser and device.</p></div><button class="btn btn-primary" id="micBtn"><span>🎙</span><span data-i18n="startListening">Start listening</span></button><p class="voice-status" id="voiceStatus" aria-live="polite"></p></div>
+          <form class="chat-input-row" id="chatForm"><label class="sr-only" for="chatInput">Ask a question</label><input id="chatInput" autocomplete="off" placeholder="Ask about the sample label…" data-i18n-placeholder="chatPlaceholder"><button class="mic-inline" type="button" id="inlineMic" aria-label="Use voice input">🎙</button><button class="send-btn" type="submit" aria-label="Send message">↑</button></form>
+          <div class="chat-footnote"><span>◇</span><span data-i18n="chatDisclaimer">Answers are illustrative. Verify medicine details with the actual package or a pharmacist.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-section section-wrap" id="about">
+      <div class="center-heading"><div class="section-kicker" data-i18n="howKicker">DESIGNED AROUND ACCESSIBILITY</div><h2 data-i18n="howTitle">Simple steps. Clearer information.</h2><p data-i18n="howDesc">The intended experience is to help people access printed label details—not to diagnose or prescribe.</p></div>
+      <div class="steps-grid">
+        <article class="step-card"><div class="step-illustration step-blue"><span>▧</span><i>01</i></div><h3 data-i18n="step1Title">Capture the label</h3><p data-i18n="step1Desc">Take or upload a clear image of the medicine packaging.</p></article>
+        <article class="step-card"><div class="step-illustration step-mint"><span>⌁</span><i>02</i></div><h3 data-i18n="step2Title">Read printed details</h3><p data-i18n="step2Desc">The planned OCR system will extract text and organize visible fields.</p></article>
+        <article class="step-card"><div class="step-illustration step-lilac"><span>♫</span><i>03</i></div><h3 data-i18n="step3Title">Listen or ask</h3><p data-i18n="step3Desc">Explore label details with accessible voice and chat controls.</p></article>
+        <article class="step-card"><div class="step-illustration step-amber"><span>✓</span><i>04</i></div><h3 data-i18n="step4Title">Verify uncertainty</h3><p data-i18n="step4Desc">If text is unclear, rescan or ask a qualified professional to verify it.</p></article>
+      </div>
+    </section>
+
+    <section class="safety-section section-wrap"><div class="safety-card"><div class="safety-symbol">!</div><div><h3 data-i18n="safetyHeading">A helpful reader—not a medical decision-maker.</h3><p data-i18n="safetyBody">SafeMeds AI is currently a frontend prototype. It does not yet scan images with OCR, verify medicine authenticity, recommend doses, or determine whether a medicine is safe for you. Always check the actual package and consult a pharmacist or clinician when needed.</p></div><span class="safety-pill" data-i18n="prototypeLabel">Prototype disclosure</span></div></section>
+  </main>
+
+  <footer class="footer"><div class="section-wrap footer-inner"><a class="brand footer-brand" href="#home"><span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 34S5 25 5 14.5A8.5 8.5 0 0 1 20 9a8.5 8.5 0 0 1 15 5.5C35 25 20 34 20 34Z" fill="none" stroke="currentColor" stroke-width="3.2"/><path d="M13 20h14M20 13v14" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/></svg></span><span>SafeMeds <b>AI</b><small>MEDICINE LABEL ASSISTANT</small></span></a><p data-i18n="footerText">Built for accessibility. Designed with verification in mind.</p><a class="back-top" href="#home" data-i18n="backTop">Back to top ↑</a></div><div class="copyright section-wrap">© 2026 SafeMeds AI · <span data-i18n="footerPrototype">Student project prototype</span></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
