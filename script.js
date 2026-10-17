@@ -2,7 +2,7 @@ const $ = (id) => document.getElementById(id);
 
 // If frontend and backend are deployed separately, paste the Render backend URL here,
 // e.g. "https://safemeds-api.onrender.com". Keep empty only when served from one origin.
-const API_BASE_URL = "";
+const API_BASE_URL = "https://safemeds-ai-backend.onrender.com";
 const state = {
  language: "en", hasImage: false, resultVisible: false, recognition: null,
  selectedFile: null, scanData: null
